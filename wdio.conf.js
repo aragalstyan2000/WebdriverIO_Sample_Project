@@ -1,10 +1,13 @@
+require('dotenv').config()
+
 exports.config = {
+    user: process.env.SAUCE_USERNAME,
+    key: process.env.SAUCE_ACCESS_KEY,
     runner: 'local',
     specs: [
-        './test/specs/inventory.e2e.js'
+        './test/specs/*.e2e.js'
     ],
     capabilities: [{
-        maxInstances: 5,
         browserName: 'chrome',
         acceptInsecureCerts: true
     }],
@@ -14,7 +17,14 @@ exports.config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['chromedriver'],
+    services: [
+        // ['chromedriver'],
+        ['sauce', {
+            sauceConnect: true,
+            sauceConnectOpts: {
+            }
+        }]
+    ],
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {

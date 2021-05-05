@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx wdio run ./wdio.conf.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@wdio/local-runner": "^7.5.5",
     "@wdio/mocha-framework": "^7.5.3",
+    "@wdio/sauce-service": "^7.5.3",
     "@wdio/spec-reporter": "^7.5.3",
     "chromedriver": "^90.0.0",
     "wdio-chromedriver-service": "^7.0.0"

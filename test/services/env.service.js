@@ -1,4 +1,3 @@
-require('dotenv').config()
 const envService = process.env;
 
 module.exports = {
