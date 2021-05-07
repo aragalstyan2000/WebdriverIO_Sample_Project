@@ -7,7 +7,7 @@ describe('Login tests', () => {
         await LoginPage.open();
     })
 
-    afterEach(async() => {
+    afterEach(async () => {
         await InventoryPage.clearBrowser()
     })
 

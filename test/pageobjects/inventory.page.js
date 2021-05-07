@@ -35,13 +35,14 @@ class InventoryPage extends Page {
     }
 
     async itemsAreSortedBy(by = "name", how = "asc") {
+        by = by.toLowerCase()
+        how = how.toLowerCase()
         let items
         if (by === "price") {
             items = await this.inventoryItemPrices
         } else {
             items = await this.inventoryItemNames
         }
-
         let itemTexts = []
         for (let item of items) {
             if (by === "price") {
@@ -52,7 +53,7 @@ class InventoryPage extends Page {
             }
         }
         let ascendingItemTexts = []
-        if (how.toLowerCase() === "desc") {
+        if (how === "desc") {
             ascendingItemTexts = [...itemTexts].sort((a, b) => {
                 if (a > b)
                     return -1;
@@ -61,7 +62,7 @@ class InventoryPage extends Page {
                 return 0;
             });
         } else {
-            if (by==="price") {
+            if (by === "price") {
                 ascendingItemTexts = [...itemTexts].sort((a, b) => a - b);
             } else {
                 ascendingItemTexts = [...itemTexts].sort();
@@ -80,21 +81,22 @@ class InventoryPage extends Page {
     }
 
     async sortBy(by = "name", how = "asc") {
+        by = by.toLowerCase()
+        how = how.toLowerCase()
         let sortButton = await this.inventorySortButton
         const sort = async function (val) {
             await sortButton.selectByAttribute('value', val)
         }
-
-        if (by.toLowerCase() === "name") {
-            if (how.toLowerCase() === "asc") {
+        if (by === "name") {
+            if (how === "asc") {
                 await sort('az')
-            } else if (how.toLowerCase() === "desc") {
+            } else if (how === "desc") {
                 await sort('za')
             }
-        } else if (by.toLowerCase() === "price") {
-            if (how.toLowerCase() === "asc") {
+        } else if (by === "price") {
+            if (how === "asc") {
                 await sort('lohi')
-            } else if (how.toLowerCase() === "desc") {
+            } else if (how === "desc") {
                 await sort('hilo')
             }
         } else {

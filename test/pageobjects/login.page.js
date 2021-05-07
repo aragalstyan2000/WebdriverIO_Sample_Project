@@ -16,6 +16,7 @@ class LoginPage extends Page {
     get loginErrorMsg() {
         return browser.$('[data-test="error"]')
     }
+
     async login(username, password) {
         await (await this.loginInput).setValue(username);
         await (await this.passwordInput).setValue(password);

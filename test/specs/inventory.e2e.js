@@ -7,11 +7,11 @@ describe('Inventory Tests', () => {
         await LoginPage.open();
     })
 
-    beforeEach(async() => {
+    beforeEach(async () => {
         await LoginPage.login(environment.defaultUserName, environment.defaultUserPass);
     })
 
-    afterEach(async() => {
+    afterEach(async () => {
         await InventoryPage.clearBrowser()
     })
 
@@ -25,7 +25,7 @@ describe('Inventory Tests', () => {
         await expect(await InventoryPage.cartBadge).not.toBeExisting();
     });
 
-    it.only('Should filter items properly', async () => {
+    it('Should filter items properly', async () => {
         await InventoryPage.sortBy('name', 'asc')
         await expect(await InventoryPage.itemsAreSortedBy('name', 'asc')).toBeTruthy();
 
