@@ -26,9 +26,18 @@ exports.config = {
         }]
     ],
     framework: 'mocha',
-    reporters: ['spec'],
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
     },
+    afterStep: function (test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            browser.takeScreenshot();
+        }
+    }
 }

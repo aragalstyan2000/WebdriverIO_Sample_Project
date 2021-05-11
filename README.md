@@ -22,5 +22,12 @@ An example project of WebdriverIO integrated to SauceLabs for cross browser test
   ```
   npm run test
   ```
+* Open SauceLabs dashboard to see the test results.
+[Sauce Labs Dashboard](https://app.saucelabs.com/dashboard/tests/)
 
-[Sauce Labs Dashboard](https://saucelabs.com/beta/dashboard/)
+### Generate Allure report
+
+* Generate and open the report using:
+   ```
+   allure generate ./allure-results --clean && allure open
+   ```
