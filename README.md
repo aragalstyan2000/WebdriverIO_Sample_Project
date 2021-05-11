@@ -1,4 +1,4 @@
-# JS-Mocha-WebdriverIO-Mocha-SauceLab
+# JS-WebdriverIO-Mocha-SauceLab
 
 An example project of WebdriverIO integrated to SauceLabs for cross browser testing.
 
