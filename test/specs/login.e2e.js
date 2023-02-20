@@ -13,14 +13,11 @@ describe('Login tests', () => {
 
     it('Should show error messages for invalid credentials', async () => {
         await LoginPage.login('', '');
-        await expect(await LoginPage.loginErrorMsg)
-            .toHaveText('Epic sadface: Username is required');
+        await expect(await LoginPage.loginErrorMsg).toHaveText('Epic sadface: Username is required');
         await LoginPage.login('test', '');
-        await expect(await LoginPage.loginErrorMsg)
-            .toHaveText('Epic sadface: Password is required');
+        await expect(await LoginPage.loginErrorMsg).toHaveText('Epic sadface: Password is required');
         await LoginPage.login('test', 'test');
-        await expect(await LoginPage.loginErrorMsg)
-            .toHaveText('Epic sadface: Username and password do not match any user in this service');
+        await expect(await LoginPage.loginErrorMsg).toHaveText('Epic sadface: Username and password do not match any user in this service');
     });
 
     it('Should login with valid credentials', async () => {

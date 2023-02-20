@@ -28,13 +28,10 @@ describe('Inventory Tests', () => {
     it('Should filter items properly', async () => {
         await InventoryPage.sortBy('name', 'asc')
         await expect(await InventoryPage.itemsAreSortedBy('name', 'asc')).toBeTruthy();
-
         await InventoryPage.sortBy('name', 'desc')
         await expect(await InventoryPage.itemsAreSortedBy('name', 'desc')).toBeTruthy();
-
         await InventoryPage.sortBy('price', 'asc')
         await expect(await InventoryPage.itemsAreSortedBy('price', 'asc')).toBeTruthy();
-
         await InventoryPage.sortBy('price', 'desc')
         await expect(await InventoryPage.itemsAreSortedBy('price', 'desc')).toBeTruthy();
     });
