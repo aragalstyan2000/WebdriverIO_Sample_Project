@@ -19,7 +19,7 @@ describe('Inventory Tests', () => {
         await expect(await InventoryPage.cartIcon).toBeExisting();
         await expect(await InventoryPage.cartBadge).not.toBeExisting();
         await (await InventoryPage.addToCartButton).click()
-        await expect(await InventoryPage.cartBadge).toBeVisible();
+        await expect(await InventoryPage.cartBadge).toBeDisplayed();
         await expect(await InventoryPage.cartBadge).toHaveText('1');
         await (await InventoryPage.removeFromCartButton).click()
         await expect(await InventoryPage.cartBadge).not.toBeExisting();
